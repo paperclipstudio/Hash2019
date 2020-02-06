@@ -21,6 +21,10 @@ public class Photo {
 	 return PLEASE_CHANGE;
  }
 
+ public String toString() {
+	 return "[id 1234, jumper_NOT, red_VAILD, overwatch_OUTPUT]";
+ }
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
