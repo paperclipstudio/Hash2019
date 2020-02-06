@@ -12,6 +12,7 @@ import java.util.ArrayList;
  */
 
 public class Parser {
+  // Please Change name -------\Rides/----
     public static Photo[] parseRidesFromFile(String filename) throws FileNotFoundException {
         Scanner scanner = new Scanner(new File(filename));
         int amountOfPhotos = Integer.parseInt(scanner.nextLine());
