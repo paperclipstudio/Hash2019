@@ -17,7 +17,7 @@ public class Photo {
 
 // TODO
  public String[] getTags() {
-	 String[] PLEASE_CHANGE = {"cat", "dog", "monkey"};
+	 String[] PLEASE_CHANGE = {"catFAKE", "dogITEMS", "monkeyBAD"};
 	 return PLEASE_CHANGE;
  }
 

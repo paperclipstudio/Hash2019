@@ -14,6 +14,7 @@ public class JoinSlides{
     // Used to hold Slideshows
     Slideshow[] allBranches = new Slideshow[NUMBER_TO_HOLD * NUMBER_TO_BRANCH];
     // Creates three Starting SlideShows
+    // With just the first Photo in it.
     for(int i=0; i<3; i++) {
       allBranches[i] = new Slideshow();
       allBranches[i].add(inputPhotos[0]);
