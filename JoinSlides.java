@@ -14,10 +14,12 @@ public class JoinSlides{
     // Used to hold Slideshows
     Slideshow[] allBranches = new Slideshow[NUMBER_TO_HOLD * NUMBER_TO_BRANCH];
     // Creates three Starting SlideShows
+    // With just the first Photo in it.
     for(int i=0; i<3; i++) {
       allBranches[i] = new Slideshow();
       allBranches[i].add(inputPhotos[0]);
     };
+    // For each good branch.
     for(int i = 0; i < NUMBER_TO_HOLD; i++){
       int numberOfTags = allBranches[i].getLast().getNumberOfTags();
       for(String tag: allBranches[i].getLast().getTags()){
@@ -29,3 +31,4 @@ public class JoinSlides{
     return allBranches[0];
   }
 }
+
