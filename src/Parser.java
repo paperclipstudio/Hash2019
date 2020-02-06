@@ -14,28 +14,31 @@ import java.util.ArrayList;
 public class Parser {
     public static Photo[] parseRidesFromFile(String filename) throws FileNotFoundException {
         Scanner scanner = new Scanner(new File(filename));
-        int amountOfPhotos = Integer.parseInt(scanner.nextLine()); 
-        Photo[] photos = new Photo[amountOfPhotos]; 
-		int rideID = 0;
-		boolean isVertical;
-		//String discard;
+        int amountOfPhotos = Integer.parseInt(scanner.nextLine());
+        Photo[] photos = new Photo[amountOfPhotos];
+        int rideID = 0;
+        boolean isVertical;
+		      //String discard;
         while (scanner.hasNextLine()) {
         	String a = scanner.next();
-        	System.out.println(a);
-        	if(a == "V") {
+        	System.out.println("a: " + a);
+        	if(a.equals("V")) {
         		isVertical = true;
-        	} else {
+        	} else if (a.equals("H")){
         		isVertical = false;
-        	}
+        	} else {
+            System.out.println("Invaild InputFormat");
+            return null;
+          }
         	//discard = scanner.next();
         	int numOfTags = Integer.parseInt(scanner.next());
         	//discard = scanner.next();
-        	System.out.println(rideID);
-        	System.out.println(isVertical);
-        	System.out.println(numOfTags);
+        	System.out.println("rideID: " + rideID);
+        	System.out.println("isVertial: " + isVertical);
+        	System.out.println("numbOfTags: " + numOfTags);
 			String data = scanner.nextLine();
 			String[] tempArray = data.substring(1).split(" ");
-			System.out.println(numOfTags);
+			System.out.println("numberOfTags2: " + numOfTags);
 			Photo tempPhoto = new Photo(rideID, isVertical, numOfTags, tempArray);
 			photos[rideID] = tempPhoto;
             rideID =+ 1;
