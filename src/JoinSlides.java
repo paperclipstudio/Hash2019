@@ -19,6 +19,7 @@ public class JoinSlides{
       allBranches[i] = new Slideshow();
       allBranches[i].add(inputPhotos[0]);
     };
+    // For each good branch.
     for(int i = 0; i < NUMBER_TO_HOLD; i++){
       int numberOfTags = allBranches[i].getLast().getNumberOfTags();
       for(String tag: allBranches[i].getLast().getTags()){
