@@ -9,7 +9,7 @@ public class JoinSlides{
   // #_TO_HOLD * #_TO_BRANCH
   final static int NUMBER_TO_BRANCH = 3;
   public static Slideshow joinSlides(
-  Photo[] inputPhotos,
+  Slide[] inputSlides,
   HashMap<String, int[]> tags) {
     // Used to hold Slideshows
     Slideshow[] allBranches = new Slideshow[NUMBER_TO_HOLD * NUMBER_TO_BRANCH];
@@ -17,28 +17,28 @@ public class JoinSlides{
     // With just the first Photo in it.
     for(int i=0; i<3; i++) {
       allBranches[i] = new Slideshow();
-      allBranches[i].add(inputPhotos[0]);
+      allBranches[i].add(inputSlides[0]);
     };
     // For each good branch.
     for(int i = 0; i < NUMBER_TO_HOLD; i++){
-      // Find out the number of Tags of lass image.
+      // Find out the number of Tags of last slide.
       int NumberOfTags = allBranches[i].getLast().getNumberOfTags()/2;
-      // Make HashMap to store Photos with correct matches
+      // Make HashMap to store Slide with correct matches
       // HashMap<Id, numberOfMatches>
       HashMap<Integer, Integer> correctMatches = new HashMap<Integer, Integer>();
-      // Go though all all tags of the last Photo
+      // Go though all all tags of the last Slide
       for(String tag: allBranches[i].getLast().getTags()){
-        // For all photos with this matching tag
+        // For all slides with this matching tag
         if (tags.get(tag) != null){
-          for(int photoIDWithMatchingTag: tags.get(tag)) {
-            // Increases the value of correctMatch["photoID"] by one
+          for(int slideIDWithMatchingTag: tags.get(tag)) {
+            // Increases the value of correctMatch["slideID"] by one
             Integer tempInteger = new Integer(correctMatches
-            .get(photoIDWithMatchingTag).intValue() + 1);
-            correctMatches.put(photoIDWithMatchingTag, tempInteger);
+            .get(slideIDWithMatchingTag).intValue() + 1);
+            correctMatches.put(slideIDWithMatchingTag, tempInteger);
           }
         }
       }
-      System.out.print(correctMatches);
+      //System.out.print(correctMatches);
     }
     return allBranches[0];
   }

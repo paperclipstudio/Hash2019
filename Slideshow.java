@@ -1,5 +1,12 @@
+import java.util.ArrayList;
+
 public class Slideshow{
-  //TODO
+  ArrayList<Slide> slides;
+
+  Slideshow() {
+    slides = new ArrayList<Slide>();
+  }
+
   public int getPoints() {
     return -1;
   }
@@ -9,7 +16,7 @@ public class Slideshow{
     return new Photo(1234, true, 1234, tempTagList);
   }
 
-  public void add(Photo newPhoto) {
+  public void add(Slide newSlide) {
     // Adds a photo on to the end of
     // the slide show.
 
@@ -18,6 +25,11 @@ public class Slideshow{
   public String toString() {
     // Pretty print Slideshow
     // use Photo.toString();
-    return "[id: 1234_NOT, cat_VAILD, ABBA_OUTPUT, pencil]";
+    String result = "[";
+    for(Slide input: this.slides){
+      result += ", " + input.toString();
+    }
+    result += "]";
+    return result;
   }
 }
