@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 public class Main {
 
 	public static void main(String[] args) {
-		String a = "inputFiles/a_example.txt";
+		String a = "src/inputFiles/a_example.txt";
 		try {
 			Photo[] photos = Parser.parseRidesFromFile(a);
 			System.out.println(photos[0].id);
@@ -14,5 +14,3 @@ public class Main {
 	}
 
 }
-
-
