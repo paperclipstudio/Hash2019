@@ -10,8 +10,9 @@ public class Parser {
      * @author Gus
      * @param filename Input filename
      * @return photos List of photos read from the file.
+	 * @throws FileNotFoundException
      */
-	public static Photo[] parseRidesFromFile(String filename) throws FileNotFoundException { //FileNotFoundException makes Scanner work
+	public static Photo[] parsePhotosFromFile(String filename) throws FileNotFoundException { //FileNotFoundException makes Scanner work
 
         Scanner scanner = new Scanner(new File(filename));
         int amountOfPhotos = Integer.parseInt(scanner.nextLine());
