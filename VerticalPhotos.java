@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class VerticalPhotos {
 	
-	
+	/* seperate V photos from H photos */
 	public Photo [] getVerticalPhotos(Photo [] inputPhotos) {
 		Photo photos [] = new Photo[inputPhotos.length];
 		int count = 0;
@@ -19,6 +19,7 @@ public class VerticalPhotos {
 		}return returnPhotos;
 	}
 	
+	/* sort V photos and pair the first and last photo together and so on */
 	public int [][] mergeVerticalPhotos(Photo [] inputPhotos){
 		Comparator<Photo> byAmountOfTags = Comparator.comparing(Photo::getAmountOfTags);
 		Arrays.sort(inputPhotos, byAmountOfTags);
