@@ -1,3 +1,7 @@
+/**
+ * @author Lucy
+ * @version 1.0
+ */
 public class Slide {
 
 private final Photo pic1;
@@ -16,6 +20,7 @@ public Slide(Photo newPic1, Photo newPic2) {
     addTagsToArray2();
 }
 
+// Lucy needs to fix this so only one addTagsEct
 private void addTagsToArray1() {
     Set newtags = protected HashSet();
     newtags.addAll(pic1.getTags());
@@ -30,5 +35,3 @@ private void addTagsToArray2() {
 }
 
 }
-
-// fix so only one addTagsEct
