@@ -10,7 +10,8 @@ public class RunJoin {
       photoArray = new Photo[0];
       System.out.print("File not found\n");
     }
-    HashMap<String, String[]> tags = Hashmap.makePhotoHashmap(photoArray);
+
+    HashMap<String, int[]> tags = Hashmap.makePhotoHashmap(photoArray);
     System.out.print(JoinSlides.joinSlides(photoArray, tags));
   }
 }
