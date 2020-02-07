@@ -5,7 +5,8 @@ public class Slideshow{
   }
 
   public Photo getLast() {
-    return new Photo(1234, true, 1234, new String[10]);
+    String[] tempTagList = {"banana", "dog", "Dinner Plate"};
+    return new Photo(1234, true, 1234, tempTagList);
   }
 
   public void add(Photo newPhoto) {
