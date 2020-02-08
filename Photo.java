@@ -16,7 +16,7 @@ public class Photo {
 	}
 
 // TODO
- public String[] getTags() {
+ public String getTags() {
 	String tags = "";
 	for (int i = 0; i < this.tags.length; i++) {
 		tags = tags + this.tags[i] + " ";
