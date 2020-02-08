@@ -17,13 +17,17 @@ public class Photo {
 
 // TODO
  public String[] getTags() {
-	 String[] PLEASE_CHANGE = {"catFAKE", "dogITEMS", "monkeyBAD"};
-	 return PLEASE_CHANGE;
+	String tags = "";
+	for (int i = 0; i < this.tags.length; i++) {
+		tags = tags + this.tags[i] + " ";
+	}
+	return tags;
  }
 
  public String toString() {
-	 return "[id 1234, jumper_NOT, red_VAILD, overwatch_OUTPUT]";
- }
+	return " ID: " + Integer.toString(id) + "\n isVertical: " + String.valueOf(isVertical) + "\n amountOfTags: "
+		+ Integer.toString(amountOfTags) + "\n tags: " + getTags();
+}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
