@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.lang.Math;
 
 public class Slideshow{
   ArrayList<Slide> slides;
@@ -8,7 +9,27 @@ public class Slideshow{
   }
 
   public int getPoints() {
-    return -1;
+    int points = 0;
+    for(int i = 0; i < slides.size() - 1; i++){
+      points += getTransitionPoints(slides.get(i), slides.get(i+1));
+    }
+    return points;
+  }
+
+  public static int getTransitionPoints(Slide a, Slide b) {
+    int tagsA = a.getNumberOfTags();
+    int tagsB = b.getNumberOfTags();
+    int tagsAB = 0;
+    for(String aTag: a.getTags()) {
+      for(String bTag: b.getTags()) {
+        if (aTag.equals(bTag)) {
+          tagsA--;
+          tagsB--;
+          tagsAB++;
+        }
+      }
+    }
+    return Math.min(tagsA, Math.min(tagsAB, tagsB));
   }
 
   public Photo getLast() {
@@ -17,8 +38,7 @@ public class Slideshow{
   }
 
   public void add(Slide newSlide) {
-    // Adds a photo on to the end of
-    // the slide show.
+    slides.add(newSlide);
 
   }
 
@@ -27,7 +47,7 @@ public class Slideshow{
     // use Photo.toString();
     String result = "[";
     for(Slide input: this.slides){
-      result += ", " + input.toString();
+      result += input.toString() + ", ";
     }
     result += "]";
     return result;

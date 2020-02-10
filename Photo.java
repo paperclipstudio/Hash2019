@@ -22,12 +22,21 @@ public class Photo {
  }
 
  public String toString() {
-	 return "[id 1234, jumper_NOT, red_VAILD, overwatch_OUTPUT]";
+	 String result = "[";
+	 for(String tag: tags) {
+		 result += tag + ", ";
+	 }
+	 result += "]";
+	 return result;
  }
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+	}
+
+	public int getID() {
+		return this.id;
 	}
 
 }

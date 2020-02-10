@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class JoinSlides{
   // How many slideshows to keep after each round
@@ -38,8 +39,20 @@ public class JoinSlides{
           }
         }
       }
+      // Find all photos that have right number of matches.
+      Integer[] tagsArray = correctMatches.keySet().toArray();
+      Arrays.sort(tagsArray, new sortByMatches());
       //System.out.print(correctMatches);
     }
     return allBranches[0];
   }
+}
+
+class sortByMatches implements Comparator<int[]>
+{
+    // Used for sorting in ascending order of
+    // roll number
+    public int compare(int[] a, int[] b) {
+        return a[0] - b[0];
+    }
 }
