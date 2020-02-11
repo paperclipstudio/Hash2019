@@ -1,6 +1,8 @@
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Collection;
 
 public class JoinSlides{
   // How many slideshows to keep after each round
@@ -22,16 +24,20 @@ public class JoinSlides{
     };
     // For each good branch.
     for(int i = 0; i < NUMBER_TO_HOLD; i++){
+      System.out.println("I: " + i);
       // Find out the number of Tags of last slide.
-      int NumberOfTags = allBranches[i].getLast().getNumberOfTags()/2;
+      int NumberOfTags = allBranches[i].getLast().getNumberOfTags() / 2;
       // Make HashMap to store Slide with correct matches
       // HashMap<Id, numberOfMatches>
       HashMap<Integer, Integer> correctMatches = new HashMap<Integer, Integer>();
-      // Go though all all tags of the last Slide
+      // Go though all all tags of the last Slide(Integer[])
       for(String tag: allBranches[i].getLast().getTags()){
+        System.out.println("k");
         // For all slides with this matching tag
         if (tags.get(tag) != null){
           for(int slideIDWithMatchingTag: tags.get(tag)) {
+            System.out.println("m");
+
             // Increases the value of correctMatch["slideID"] by one
             Integer tempInteger = new Integer(correctMatches
             .get(slideIDWithMatchingTag).intValue() + 1);
@@ -39,16 +45,38 @@ public class JoinSlides{
           }
         }
       }
+      System.out.println("o");
       // Find all photos that have right number of matches.
-      Integer[] tagsArray = correctMatches.keySet().toArray();
-      Arrays.sort(tagsArray, new sortByMatches());
+      int rightNumberOfMatches = allBranches[i].getLast().getNumberOfTags()/2;
+      Object[] tagsArray = correctMatches.keySet().toArray();
+      Collection<Integer> temp = correctMatches.values();
+      Integer[] matchCountArray = temp.toArray(new Integer[0]);
+      boolean matchFound = false;
+      int torarence = 0;
+      int numberFound = 0;
+      while(!matchFound && torarence > 100) {
+        System.out.println(torarence);
+        for(int j = 0; j < matchCountArray.length; j++) {
+
+          if ((matchCountArray[j].intValue() == rightNumberOfMatches + torarence ||
+          matchCountArray[j] == rightNumberOfMatches - torarence) &&
+          !allBranches[i].isSlideInSlideShow(inputSlides[i].getID())) {
+            matchFound = true;
+            numberFound++;
+            allBranches[i*3 + 2 + numberFound].add(inputSlides[i]);
+            break;
+          }
+        }
+        torarence++;
+      }
+      Arrays.sort(tagsArray);
       //System.out.print(correctMatches);
     }
     return allBranches[0];
   }
 }
-
-class sortByMatches implements Comparator<int[]>
+/*
+class sortByMatches implements Comparator<Integer[]>
 {
     // Used for sorting in ascending order of
     // roll number
@@ -56,3 +84,4 @@ class sortByMatches implements Comparator<int[]>
         return a[0] - b[0];
     }
 }
+*/
