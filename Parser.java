@@ -36,4 +36,15 @@ public class Parser {
 		scanner.close();
 		return photos;
 	}
+	
+	//In case of error, comment it
+	public static void parseSlidesToFile(ArrayList<Slide> inputSlides, String outputFile) throws IOException {
+		BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
+		writer.write(inputSlides.size() + "\n");
+		for (Slide s: inputSlides) {
+			writer.write(s.toString());
+		}
+		
+		writer.close();
+	}
 }
